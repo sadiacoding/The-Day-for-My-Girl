@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- FLOATING DECORATIONS -->
+    <div class="floating-elements">
+        <span>❤️</span>
+        <span>✨</span>
+        <span>🎀</span>
+        <span>💕</span>
+        <span>✨</span>
+        <span>❤️</span>
+        <span>🌸</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>✨</span>
+        <span>🌹</span>
+        <span>❤️</span>
+    </div>
+
+    <!-- STEP 1 — WELCOME -->
+    <section id="step1" class="step active">
+        <div class="card welcome-card">
+            <div class="emoji-big">🎀</div>
+
+            <h1>HEY MY GIRL... 👀❤️</h1>
+
+            <p>
+                Your Aadi has prepared something special for you. ❤️
+            </p>
+
+            <p>
+                But there's a little surprise waiting for you... 👀✨
+            </p>
+
+            <button class="magic-button" onclick="nextStep(2)">
+                START THE SURPRISE ✨
+            </button>
+        </div>
+    </section>
+
+    <!-- STEP 2 — SECRET MISSION -->
+    <section id="step2" class="step">
+        <div class="card">
+
+            <div class="emoji-big">🔐</div>
+
+            <h1>WELCOME TO YOUR BIRTHDAY QUEST 🔐</h1>
+
+            <p>Your surprise is locked.</p>
+
+            <p>
+                Complete the challenges and unlock every part of your surprise. ❤️
+            </p>
+
+            <div class="mission-box">
+                <span>MISSION STATUS</span>
+                <strong>LOCKED 🔒</strong>
+            </div>
+
+            <button class="magic-button" onclick="nextStep(3)">
+                ACCEPT THE CHALLENGE 🎮
+            </button>
+
+        </div>
+    </section>
+
+    <!-- STEP 3 — FIRST PUZZLE -->
+    <section id="step3" class="step">
+        <div class="card puzzle-card">
+
+            <div class="emoji-big">🧩</div>
+
+            <h1>FIRST PUZZLE 🧩</h1>
+
+            <p>
+                I’m not a stranger, but I’m not just a name.
+            </p>
+
+            <p>
+                I’m someone whose place in your story is not the same.
+            </p>
+
+            <p>
+                Some connections are made by time, while some feel like two souls were meant to find.
+            </p>
+
+            <p>
+                Is there someone who loves you more than anyone else,
+                someone for whom you matter more than everyone else,
+                someone for whom you are truly precious — maybe even their whole world,
+                and who holds a special place in your heart? ❤️
+            </p>
+
+            <h2>Who comes to your mind? 👀</h2>
+
+            <input
+                type="text"
+                id="puzzleAnswer"
+                class="answer-input"
+                placeholder="Type your answer..."
+                autocomplete="off"
+            >
+
+            <button class="magic-button" onclick="checkPuzzleAnswer()">
+                SUBMIT ANSWER ❤️
+            </button>
+
+            <p id="puzzleMessage" class="message"></p>
+
+            <div class="hints">
+
+                <button class="hint-button" onclick="showHint(1)">
+                    💡 HINT 1
+                </button>
+
+                <p id="hint1" class="hint-text"></p>
+
+                <button class="hint-button" onclick="showHint(2)">
+                    💡 HINT 2
+                </button>
+
+                <p id="hint2" class="hint-text"></p>
+
+            </div>
+
+            <div id="puzzleNext"></div>
+
+        </div>
+    </section>
+
+    <!-- STEP 4 — QUIZ -->
+    <section id="step4" class="step">
+        <div class="card">
+
+            <div class="emoji-big">✍️</div>
+
+            <h1>HOW WELL DO YOU KNOW ME? ✍️</h1>
+
+            <p>
+                Let's see how much you actually remember about us. 👀❤️
+            </p>
+
+            <div id="quizArea">
+
+                <!-- QUESTION 1 -->
+                <div class="quiz-question" id="question1">
+
+                    <h2>
+                        1. What do you think I love seeing you wear the most,
+                        chadar as hijab or gown as hijab? 👀❤️
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer1"
+                        class="answer-input"
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(1)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage1" class="message"></p>
+
+                </div>
+
+                <!-- QUESTION 2 -->
+                <div class="quiz-question hidden-question" id="question2">
+
+                    <h2>
+                        2. Which colour do you think I love seeing you wear the most? ❤️
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer2"
+                        class="answer-input"
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(2)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage2" class="message"></p>
+
+                </div>
+
+                <!-- QUESTION 3 -->
+                <div class="quiz-question hidden-question" id="question3">
+
+                    <h2>
+                        3. Who do you think is the most special girl in my life?
+                        Type her name. 👀
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer3"
+                        class="answer-input"
+                        placeholder="Type her name..."
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(3)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage3" class="message"></p>
+
+                </div>
+
+                <!-- QUESTION 4 -->
+                <div class="quiz-question hidden-question" id="question4">
+
+                    <h2>
+                        4. Think back to the very first time our paths crossed… 👀
+                        Where were we when we first met?
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer4"
+                        class="answer-input"
+                        placeholder="Where did we meet?"
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(4)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage4" class="message"></p>
+
+                </div>
+
+                <!-- QUESTION 5 -->
+                <div class="quiz-question hidden-question" id="question5">
+
+                    <h2>
+                        5. When we first met there, what did I say to you? 👀
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer5"
+                        class="answer-input"
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(5)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage5" class="message"></p>
+
+                </div>
+
+                <!-- QUESTION 6 -->
+                <div class="quiz-question hidden-question" id="question6">
+
+                    <h2>
+                        6. Do you remember what the weather was like when we first met?
+                        What was happening around us that day? 🌧️
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer6"
+                        class="answer-input"
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(6)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage6" class="message"></p>
+
+                </div>
+
+                <!-- QUESTION 7 -->
+                <div class="quiz-question hidden-question" id="question7">
+
+                    <h2>
+                        7. The first time I gave you a little piece of nature,
+                        what kind of flower was it? 🤍🌹
+                    </h2>
+
+                    <input
+                        type="text"
+                        id="answer7"
+                        class="answer-input"
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                    >
+
+                    <button class="magic-button" onclick="checkQuizAnswer(7)">
+                        SUBMIT ✨
+                    </button>
+
+                    <p id="quizMessage7" class="message"></p>
+
+                </div>
+
+                <div id="quizComplete" class="hidden">
+
+                    <p class="success-message">
+                        Not bad… 👀❤️
+                        <br><br>
+                        Looks like you remember more about us than you thought.
+                        <br><br>
+                        But there’s still more to unlock… 🔐✨
+                    </p>
+
+                    <button class="magic-button" onclick="nextStep(5)">
+                        NEXT CHALLENGE ➜
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STEP 5 — MATHEMATICS -->
+    <section id="step5" class="step">
+        <div class="card">
+
+            <div class="emoji-big">🧮</div>
+
+            <h1>MATHEMATICS CHALLENGE 🧮</h1>
+
+            <p>
+                Okay… My Girl, time to prove your Mathematics degree
+                wasn't just for decoration. 😌🧮
+            </p>
+
+            <p>
+                Let’s see what you’ve got. 👀
+            </p>
+
+            <div id="mathArea">
+
+                <h2 id="mathQuestion">
+                    1. What comes next?
+                    <br><br>
+                    2, 6, 12, 20, 30, ?
+                </h2>
+
+                <input
+                    type="text"
+                    id="mathAnswer"
+                    class="answer-input"
+                    placeholder="Your answer..."
+                    autocomplete="off"
+                >
+
+                <button class="magic-button" onclick="checkMathAnswer()">
+                    SUBMIT 🧮
+                </button>
+
+                <p id="mathMessage" class="message"></p>
+
+            </div>
+
+            <div id="mathComplete" class="hidden">
+
+                <p class="success-message">
+                    MATHEMATICS CHALLENGE COMPLETE! 🔓🧮✨
+                    <br><br>
+                    Your brain survived. 😂
+                    <br><br>
+                    Now let's see how good your memory is… 👀❤️
+                </p>
+
+                <button class="magic-button" onclick="nextStep(6)">
+                    NEXT CHALLENGE ➜
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STEP 6 — MEMORY CHALLENGE -->
+    <section id="step6" class="step">
+        <div class="card">
+
+            <div class="emoji-big">🖼️</div>
+
+            <h1>MEMORY CHALLENGE 🖼️</h1>
+
+            <p>
+                Let's see how well you know the way I see you. ❤️
+            </p>
+
+            <!-- PART 1 -->
+            <div id="memoryPart1">
+
+                <h2>
+                    Part 1 — Which picture do you think I like the most? 👀❤️
+                </h2>
+
+                <p>Look carefully… 👀</p>
+
+                <div class="photo-grid">
+
+                    <div class="photo-option" onclick="selectMemoryPhoto(1)">
+                        <img src="images/solo1.jpg" alt="Photo 1">
+                    </div>
+
+                    <div class="photo-option" onclick="selectMemoryPhoto(2)">
+                        <img src="images/solo2.jpg" alt="Photo 2">
+                    </div>
+
+                    <div class="photo-option" onclick="selectMemoryPhoto(3)">
+                        <img src="images/solo3.jpg" alt="Photo 3">
+                    </div>
+
+                    <div class="photo-option" onclick="selectMemoryPhoto(4)">
+                        <img src="images/solo4.jpg" alt="Photo 4">
+                    </div>
+
+                </div>
+
+                <button class="none-button" onclick="selectMemoryPhoto(0)">
+                    NONE OF THESE 👀
+                </button>
+
+                <p id="memoryMessage1" class="message"></p>
+
+            </div>
+
+            <!-- PART 2 -->
+            <div id="memoryPart2" class="hidden">
+
+                <h2>
+                    Part 2 — Which one do you think I find more beautiful? ❤️
+                </h2>
+
+                <div class="photo-grid two-photos">
+
+                    <div class="photo-option" onclick="selectMakeupPhoto(1)">
+                        <img src="images/makeup.jpg" alt="Makeup photo">
+                    </div>
+
+                    <div class="photo-option" onclick="selectMakeupPhoto(2)">
+                        <img src="images/nomakeup.jpg" alt="No makeup photo">
+                    </div>
+
+                </div>
+
+                <p id="memoryMessage2" class="message"></p>
+
+            </div>
+
+            <!-- PART 3 -->
+            <div id="memoryPart3" class="hidden">
+
+                <h2>
+                    Part 3 — Out of all these pictures,
+                    which one is my favourite? 👀❤️
+                </h2>
+
+                <div class="photo-grid">
+
+                    <div class="photo-placeholder">
+                        <img src="images/solo1.jpg" alt="Photo 1">
+                    </div>
+
+                    <div class="photo-placeholder">
+                        <img src="images/solo2.jpg" alt="Photo 2">
+                    </div>
+
+                    <div class="photo-placeholder">
+                        <img src="images/solo3.jpg" alt="Photo 3">
+                    </div>
+
+                    <div class="photo-placeholder">
+                        <img src="images/solo4.jpg" alt="Photo 4">
+                    </div>
+
+                </div>
+
+                <input
+                    type="text"
+                    id="memoryFavorite"
+                    class="answer-input"
+                    placeholder="Type your answer..."
+                    autocomplete="off"
+                >
+
+                <button class="magic-button" onclick="checkFavoriteMemory()">
+                    SUBMIT ❤️
+                </button>
+
+                <p id="memoryMessage3" class="message"></p>
+
+            </div>
+
+            <!-- COMPLETE -->
+            <div id="memoryComplete" class="hidden">
+
+                <p class="success-message">
+                    Memory Challenge complete. 🔓❤️
+                    <br><br>
+                    Maybe now you know a little better how I see you. ✨
+                </p>
+
+                <button class="magic-button" onclick="nextStep(7)">
+                    NEXT ➜
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STEP 7 — MEMORY VAULT -->
+    <section id="step7" class="step">
+        <div class="card vault-card">
+
+            <div class="emoji-big">❤️</div>
+
+            <h1>MEMORY VAULT 🔐❤️</h1>
+
+            <p>
+                Some moments deserve their own little place. ✨
+            </p>
+
+            <div class="memory-vault">
+
+                <div class="memory-card vault-item">
+                    <div class="vault-photo">
+                        <img src="images/memory1.jpg" alt="A Moment I Still Remember">
+                    </div>
+                    <h3>A Moment I Still Remember ❤️</h3>
+                </div>
+
+                <div class="memory-card vault-item">
+                    <div class="vault-photo">
+                        <img src="images/memory2.jpg" alt="A Little Moment, A Big Memory">
+                    </div>
+                    <h3>A Little Moment, A Big Memory ❤️</h3>
+                </div>
+
+                <div class="memory-card vault-item">
+                    <div class="vault-photo">
+                        <img src="images/memory3.jpg" alt="The Moment That Still Makes Me Smile">
+                    </div>
+                    <h3>The Moment That Still Makes Me Smile 😂❤️</h3>
+                </div>
+
+                <div class="memory-card vault-item">
+                    <div class="vault-photo">
+                        <img src="images/memory4.jpg" alt="One I Could Never Forget">
+                    </div>
+                    <h3>One I Could Never Forget ❤️</h3>
+                </div>
+
+            </div>
+
+            <div class="vault-final-message">
+
+                <p>VAULT FULLY UNLOCKED 🔓❤️</p>
+
+                <p>
+                    These aren't just pictures.
+                    They're little pieces of our story. ✨
+                </p>
+
+                <p>
+                    And somehow… I still want to make more memories with you. ❤️
+                </p>
+
+            </div>
+
+            <button class="magic-button" onclick="nextStep(8)">
+                CONTINUE ➜
+            </button>
+
+        </div>
+    </section>
+
+    <!-- STEP 8 — NO BUTTON GAME -->
+    <section id="step8" class="step">
+        <div class="card">
+
+            <div class="emoji-big">😂</div>
+
+            <h1>WAIT… THERE'S SOMETHING WAITING FOR YOU 🎁❤️</h1>
+
+            <p>But first…</p>
+
+            <h2>Do you want to see it? 😏</h2>
+
+            <div class="yes-no-area">
+
+                <button class="magic-button" onclick="acceptGift()">
+                    YES ❤️
+                </button>
+
+                <button
+                    id="noButton"
+                    class="no-button"
+                    onmouseover="moveNoButton()"
+                    ontouchstart="moveNoButton()"
+                >
+                    NO 😂
+                </button>
+
+            </div>
+
+            <p id="noMessage" class="message"></p>
+
+            <div id="giftStart" class="hidden">
+
+                <p class="success-message">
+                    Hmm… I knew you'd say yes. 😏❤️
+                    <br><br>
+                    But your gift is hiding somewhere…
+                    <br><br>
+                    Find it. 🎁👀
+                </p>
+
+                <button class="magic-button" onclick="nextStep(9)">
+                    FIND MY GIFT 🎁 ➜
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STEP 9 — HIDDEN GIFT -->
+    <section id="step9" class="step">
+        <div class="card gift-card">
+
+            <div class="emoji-big">🎁</div>
+
+            <h1>HIDDEN GIFT / CLUE GAME 🎁</h1>
+
+            <p>
+                One of these boxes contains your next surprise. 👀❤️
+            </p>
+
+            <p>
+                Choose carefully…
+            </p>
+
+            <div class="gift-boxes" id="giftBoxes">
+
+                <button class="gift-box" onclick="chooseGift(1)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(2)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(3)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(4)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(5)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(6)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(7)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(8)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(9)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(10)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(11)">🎁</button>
+                <button class="gift-box" onclick="chooseGift(12)">🎁</button>
+
+            </div>
+
+            <p id="giftMessage" class="message"></p>
+
+            <div id="giftComplete" class="hidden">
+
+                <p class="success-message">
+                    YOU FOUND IT! 🎁❤️
+                    <br><br>
+                    You actually found the right one. 👀✨
+                    <br><br>
+                    And now there's something waiting for you…
+                    🎂❤️
+                </p>
+
+                <button class="magic-button" onclick="nextStep(10)">
+                    OPEN THE NEXT SURPRISE ➜
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STEP 10 — BIRTHDAY CAKE -->
+    <section id="step10" class="step">
+        <div class="card cake-card">
+
+            <div class="emoji-big">🎂</div>
+
+            <h1>HAPPY BIRTHDAY! 🎂❤️</h1>
+
+            <p>
+                Finally… your birthday cake. ✨
+            </p>
+
+            <div class="cake-container">
+
+                <div class="cake" id="birthdayCake">
+
+                    <div class="cake-top"></div>
+
+                    <div class="cake-body">
+
+                        <div class="candle candle1">
+                            <span class="flame">🔥</span>
+                        </div>
+
+                        <div class="candle candle2">
+                            <span class="flame">🔥</span>
+                        </div>
+
+                        <div class="candle candle3">
+                            <span class="flame">🔥</span>
+                        </div>
+
+                    </div>
+
+                    <div class="cake-decoration">
+                        ❤️ ✨ ❤️ ✨ ❤️
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p id="cakeMessage" class="message">
+                Make a wish… ❤️
+            </p>
+
+            <button
+                id="blowCandlesButton"
+                class="magic-button"
+                onclick="blowCandles()"
+            >
+                BLOW THE CANDLES 🕯️
+            </button>
+
+            <div id="cakeFinal" class="hidden">
+
+                <p class="success-message">
+                    Candles blown! ✨
+                    <br><br>
+                    Wish made. ❤️
+                    <br><br>
+                    Now… let's cut this beautiful cake. 🎂❤️
+                </p>
+
+                <button
+                    id="cakeNext"
+                    class="magic-button"
+                    onclick="cutCake()"
+                >
+                    CUT THE CAKE 🎂🔪
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- STEP 11 — PERSONAL MESSAGE -->
+    <section id="step11" class="step">
+
+        <div class="card message-card">
+
+            <div class="emoji-big">💌</div>
+
+            <h1>A PERSONAL MESSAGE FOR YOU 💌</h1>
+
+            <div
+                id="typewriterMessage"
+                class="personal-message"
+            ></div>
+
+            <button
+                id="messageNext"
+                class="magic-button hidden"
+                onclick="nextStep(12)"
+            >
+                ONE LAST QUESTION ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- STEP 12 — ONE HONEST QUESTION -->
+    <section id="step12" class="step">
+
+        <div class="card">
+
+            <div class="emoji-big">❤️</div>
+
+            <h1>ONE HONEST QUESTION ❤️</h1>
+
+            <p>
+                There's just one thing I want to ask you…
+            </p>
+
+            <h2>
+                Do you love me? ❤️
+            </h2>
+
+            <div class="yes-no-area">
+
+                <button
+                    class="magic-button"
+                    onclick="loveYes()"
+                >
+                    YES ❤️
+                </button>
+
+                <button
+                    id="loveNoButton"
+                    class="no-button"
+                    onmouseover="moveLoveNoButton()"
+                    ontouchstart="moveLoveNoButton()"
+                >
+                    NO 😂
+                </button>
+
+            </div>
+
+            <p id="loveMessage" class="message"></p>
+
+            <button
+                id="loveNext"
+                class="magic-button hidden"
+                onclick="nextStep(13)"
+            >
+                CONTINUE ❤️ ➜
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- STEP 13 — HER MESSAGE -->
+    <section id="step13" class="step">
+
+        <div class="card">
+
+            <div class="emoji-big">✍️</div>
+
+            <h1>NOW IT'S YOUR TURN ✍️❤️</h1>
+
+            <p>You've unlocked everything.</p>
+
+            <p>Now I want one little thing from you.</p>
+
+            <h2>Write something for me. ❤️</h2>
+
+            <textarea
+                id="herMessage"
+                class="message-textarea"
+                placeholder="Write whatever your heart wants to say... ❤️"
+            ></textarea>
+
+            <button
+                class="magic-button"
+                onclick="saveHerMessage()"
+            >
+                SAVE MY MESSAGE ❤️
+            </button>
+
+            <p
+                id="herMessageResult"
+                class="message"
+            ></p>
+
+            <div id="finalButtonArea" class="hidden">
+
+                <button
+                    class="magic-button"
+                    onclick="nextStep(14)"
+                >
+                    OPEN THE FINAL SURPRISE 🎁✨
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STEP 14 — FINAL SURPRISE -->
+    <section id="step14" class="step final-step">
+
+        <div class="final-balloons">
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+        </div>
+
+        <div class="final-sparkles">
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+        </div>
+
+        <div class="card final-card">
+
+            <div class="final-cake">🎂</div>
+
+            <div class="final-hearts">
+                ❤️ 💕 ❤️
+            </div>
+
+            <h1 class="final-title">
+                I LOVE YOU ❤️
+            </h1>
+
+            <h2 class="birthday-title">
+                HAPPY BIRTHDAY, MY GIRL 🎂❤️✨
+            </h2>
+
+            <p class="final-from">
+                From your Aadi ❤️
+            </p>
+
+            <div class="final-message">
+
+                <p>I LOVE YOU ❤️</p>
+
+                <p>You mean a lot to me. ❤️</p>
+
+                <p>
+                    This isn't just your birthday…
+                    it feels like my day too,
+                    because having you in my life is something special to me.
+                </p>
+
+                <p>
+                    Your happiness feels like mine,
+                    and when you're hurting, it hurts me too.
+                </p>
+
+                <p>
+                    Your pain doesn't feel like just yours —
+                    it feels like mine. ❤️
+                </p>
+
+                <p>
+                    Happy Birthday, My Girl. 🎂❤️
+                </p>
+
+                <p>
+                    — Your Aadi ✨
+                </p>
+
+            </div>
+
+            <div class="final-decoration">
+                ✨ ❤️ 🎂 ❤️ ✨
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js?v=10"></script>
+
+</body>
+</html>
